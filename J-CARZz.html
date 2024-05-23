@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-CARZ</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("file:///C:/Users/Elmer/Downloads/th.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #444;
+        }
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			background-color: rgba(0, 0, 0, 0); 
+        }
+        .marquee {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+        .marquee div {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        .product-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .product-card {
+            border: 1px solid #333;
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+            flex-basis: 30%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .add-to-cart {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .add-to-cart:hover {
+            background-color: #444;
+        }
+        #cart {
+            display: none;
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        #cart-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        #cart-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        #cart-list li:last-child {
+            border-bottom: none;
+        }
+        #cart-list li .product-name {
+            font-weight: bold;
+        }
+        #cart-list li .product-price, #cart-list li .product-quantity, #cart-list li .remove-product {
+            float: right;
+            margin-left: 10px;
+        }
+        #cart-list li .remove-product {
+            cursor: pointer;
+        }
+        #cart-list li .remove-product:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #checkout {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #checkout:hover {
+            background-color: #444;
+        }
+        #receipt {
+            display: none;
+            position: fixed;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        #receipt h2 {
+            margin-top: 0;
+        }
+		.about{
+		background-color: whitesmoke;
+		text-align:center;	
+		}
+		.products{
+		background-color: ;
+		}
+		.contact{
+		background-color: whitesmoke;
+		text-align:center;
+		}
+		.register{
+		background-color: whitesmoke;
+		text-align:center;
+		}
+		
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="C:\Users\Elmer\Downloads\j-carz-high-resolution-logo-white.png" alt="J-CARZ">
+        <ul>
+            <li><a href="#about us">About Us</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#register">Register</a></li>
+        </ul>
+    </nav>
+
+    <div class="marquee">
+        <div>Welcome to J-CARZ! Your trusted destination for top-quality Toyota and Honda vehicles. Explore our wide selection of cars, backed by our commitment to reliability and customer satisfaction. Drive with confidence with J-CARZ. | 24/7 Customer Support</div>
+    </div>
+
+    <div class="about">
+        <h1>About Us</h1>
+		        <p>Welcome to J-CARZ, where you can "Drive with Confidence"! <br>
+				We specialize in selling Toyota and Honda cars, ensuring you have access to reliable, high-quality vehicles at reasonable prices. <br>	
+				At J-CARZ, our mission is to make your car-buying experience seamless and satisfying.<br>
+				Thank you for choosing us for your next vehicle purchase!</p>
+    </div>
+
+    <div class="products">
+        <h1>Products</h1>
+        <div class="product-container">
+            <div class="product-card">
+                <img src="https://i.pinimg.com/564x/9a/64/36/9a643628e48dc7df34dda2828d4688be.jpg" alt="Toyota Camry">
+                <h2>Toyota Camry</h2>
+                <p>Price: ₱1,250,000</p>
+                <p>Engine: 2.5L I4</p>
+                <p>Horsepower: 203 hp</p>
+                <button class="add-to-cart" data-id="1">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="https://i.pinimg.com/736x/96/56/2a/96562a26b9154e747f64b940375ef9cc.jpg" alt="Honda Civic">
+                <h2>Honda Civic</h2>
+                <p>Price: ₱1,000,000</p>
+                <p>Engine: 1.5L Turbo I4</p>
+                <p>Horsepower: 174 hp</p>
+                <button class="add-to-cart" data-id="2">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="https://i.pinimg.com/736x/7e/fc/84/7efc84e65e343f2131080d8e05e4f778.jpg" alt="Toyota Corolla">
+                <h2>Toyota Corolla</h2>
+                <p>Price: ₱900,000</p>
+                <p>Engine: 1.8L I4</p>
+                <p>Horsepower: 139 hp</p>
+                <button class="add-to-cart" data-id="3">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="https://i.pinimg.com/736x/22/67/9c/22679c6e199e37f27ca07fc2a43f611d.jpg" alt="Honda Accord">
+                <h2>Honda Accord</h2>
+                <p>Price: ₱1,500,000</p>
+                <p>Engine: 1.5L Turbo I4</p>
+                <p>Horsepower: 192 hp</p>
+                <button class="add-to-cart" data-id="4">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="https://i.pinimg.com/736x/e0/12/98/e0129856583666648b544a7695f3d2b2.jpg" alt="Toyota RAV4">
+                <h2>Toyota RAV4</h2>
+                <p>Price: ₱1,700,000</p>
+                <p>Engine: 2.5L I4</p>
+                <p>Horsepower: 203 hp</p>
+                <button class="add-to-cart" data-id="5">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="https://i.pinimg.com/564x/d8/34/85/d83485eec6c3119eaf720a936f01a7f3.jpg" alt="Honda CR-V">
+                <h2>Honda CR-V</h2>
+                <p>Price: ₱1,800,000</p>
+                <p>Engine: 1.5L Turbo I4</p>
+                <p>Horsepower: 190 hp</p>
+                <button class="add-to-cart" data-id="6">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+     <div class="contact">
+        <h1>Contact Us</h1>
+        <p> For any inquiries, please contact us at <br> <a href="j-carz@gmail.com">j-carz@gmail.com</a></p>
+    </div>
+
+    <div class="register">
+        <h1>Registration Form</h1>
+        <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <div id="cart">
+        <h1>Cart</h1>
+        <ul id="cart-list"></ul>
+        <p id="total-price">Total: ₱0</p>
+        <button id="checkout">Checkout</button>
+    </div>
+
+    <div id="receipt">
+        <h2>Receipt</h2>
+        <ul id="receipt-list"></ul>
+        <p id="receipt-total">Total: ₱0</p>
+        <button id="close-receipt">Close</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cart = document.getElementById('cart');
+            const cartList = document.getElementById('cart-list');
+            const totalPrice = document.getElementById('total-price');
+            const checkoutButton = document.getElementById('checkout');
+            const receipt = document.getElementById('receipt');
+            const receiptList = document.getElementById('receipt-list');
+            const receiptTotal = document.getElementById('receipt-total');
+            const closeReceiptButton = document.getElementById('close-receipt');
+
+            let products = [];
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = button.dataset.id;
+                    const productName = button.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
+                    const productPrice = parseFloat(button.previousElementSibling.previousElementSibling.previousElementSibling.innerText.replace('Price: ₱', '').replace(/,/g, ''));
+
+                    const product = products.find(p => p.id == productId);
+
+                    if (product) {
+                        product.quantity++;
+                    } else {
+                        products.push({
+                            id: productId,
+                            name: productName,
+                            price: productPrice,
+                            quantity: 1
+                        });
+                    }
+
+                    updateCart();
+                });
+            });
+
+            function updateCart() {
+                cartList.innerHTML = '';
+                let total = 0;
+
+                products.forEach(product => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <span class="product-name">${product.name}</span>
+                        <span class="product-price">₱${product.price.toLocaleString()}</span>
+                        <span class="product-quantity">x${product.quantity}</span>
+                        <span class="remove-product" data-id="${product.id}">Remove</span>
+                    `;
+
+                    cartList.appendChild(li);
+
+                    total += product.price * product.quantity;
+                });
+
+                totalPrice.innerText = `Total: ₱${total.toLocaleString()}`;
+                cart.style.display = products.length ? 'block' : 'none';
+
+                const removeProductButtons = document.querySelectorAll('.remove-product');
+                removeProductButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        products = products.filter(p => p.id != button.dataset.id);
+                        updateCart();
+                    });
+                });
+            }
+
+            checkoutButton.addEventListener('click', () => {
+                if (products.length > 0) {
+                    alert('Thank you for your purchase!');
+                    generateReceipt();
+                    products = [];
+                    updateCart();
+                } else {
+                    alert('Your cart is empty.');
+                }
+            });
+
+            function generateReceipt() {
+                receiptList.innerHTML = '';
+                let total = 0;
+
+                products.forEach(product => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <span class="product-name">${product.name}</span>
+                        <span class="product-price">₱${product.price.toLocaleString()}</span>
+                        <span class="product-quantity">x${product.quantity}</span>
+                    `;
+
+                    receiptList.appendChild(li);
+
+                    total += product.price * product.quantity;
+                });
+
+                receiptTotal.innerText = `Total: ₱${total.toLocaleString()}`;
+                receipt.style.display = 'block';
+            }
+
+            closeReceiptButton.addEventListener('click', () => {
+                receipt.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
